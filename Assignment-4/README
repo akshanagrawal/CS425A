@@ -1,0 +1,35 @@
+In this, refer the code attached for more details. It is C++ code and run on any C++ compiler.
+Basic outline: The code is verified for different sample inputs and then addressed the questions asked. 
+Note, if the error is detected by CRC method then the data word is discarded else accepted (for methodology refer the code).
+Also, if CRC remainder is zero wrt to the pattern for the encoded data received we say that the error are not detected/not there, else non zero remainder/CRC means dataword is discarded.
+Precisely speaking, given a k-bit block of bits, or message, the transmitter generates an sequence, known as a frame check sequence (FCS), such that the resulting frame, consisting of n bits,
+is exactly divisible by some predetermined number. The receiver then divides the incoming frame by that number and, if there is no remainder, assumes there was no error.
+
+-----------------------------
+
+Note the output of code is:
+
+-----------------------------
+
+Following are four sample inputs
+
+P is 110101, D is 1010001101
+The Encoded data is: 101000110101110 with 5 last digits as CRC: 01110
+
+P is 1010, D is 1010101010
+The Encoded data is: 1010101010100 with 3 last digits as CRC: 100
+
+P is 1011, D is 1010101010
+The Encoded data is: 1010101010101 with 3 last digits as CRC: 101
+
+P is 1000, D is 1010101011
+The Encoded data is: 1010101011000 with 3 last digits as CRC: 000
+
+Part a-d begins from here:
+
+Random message of 10-bits is: 0001110111
+Encoded messsage for pattern P = 110101 is: 000111011110001 having last 5 digits as CRC: 10001
+Received erroneous 15 bit message: 100111110011111
+The message contains error and need re-transmission as the CRC at receiever end is: 10110, which is, non-zero and dataword is discarded.
+Now, error free 15 bit codeword message received on re-transmission: 000111011110001 as CRC obtained at receiver side is: 00000
+So, 10 bit dataword accepted on re-transmission is: 0001110111
